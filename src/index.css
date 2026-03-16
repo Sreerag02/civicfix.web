@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg text-muted font-body antialiased;
+    background-image: linear-gradient(to bottom, #05160e 0%, #020d08 100%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply min-h-screen pt-16 md:pt-20 max-w-7xl mx-auto;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-white mb-4;
+  }
+
+  .card {
+    @apply bg-surface border border-border rounded-2xl overflow-hidden backdrop-blur-sm bg-opacity-80;
+  }
+
+  .btn-primary {
+    @apply bg-accent hover:bg-accent2 text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-lg flex items-center justify-center gap-2 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply bg-white/5 hover:bg-white/10 text-white font-medium py-2.5 px-6 rounded-xl transition-all duration-300 border border-white/10 flex items-center justify-center gap-2 active:scale-95;
+  }
+
+  .input-field {
+    @apply w-full bg-surface2 border border-border rounded-xl px-4 py-3 text-white placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent via-accent2 to-emerald-400;
+  }
+
+  /* Custom animations helper classes */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-accent/40 transition-colors;
+  }
+}
+
+/* Background patterns */
+.bg-dots {
+  background-image: radial-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Leaflet Map overrides for dark theme */
+.leaflet-container {
+  @apply bg-bg border-none !important;
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  @apply bg-surface text-white border border-border shadow-2xl !important;
+}
+
+.leaflet-control-zoom-in, .leaflet-control-zoom-out {
+  @apply bg-surface border-border text-white !important;
+}
