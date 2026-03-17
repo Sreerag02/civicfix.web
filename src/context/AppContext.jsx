@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
-    const backendUrl = "https://civicfix-server.vercel.app/";
+    const backendUrl = "https://civicfix-server.vercel.app";
     const [token, setToken] = useState(localStorage.getItem("token") || "");
     const [userData, setUserData] = useState(null);
     const [issues, setIssues] = useState([]);
